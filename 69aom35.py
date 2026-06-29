@@ -1,46 +1,20 @@
-print ("โปรแกรมคำนวณค่าไฟ 1 เดือน")
-
-W = int(input("คำนวณค่าไฟ 1 เดือน"))
-
-    
-    def calculate_electricity_bill(units):
-    bill = 0
-    
-    # เงื่อนไขที่ 1: 0 - 9 หน่วยแรก -> ฟรี (0 บาท)
+print ("โปรแกรมจำนวนค่าไฟ 1 เดือน")
+def calculate_electricity_bill(units):
     if units <= 9:
         bill = 0
-    
-    # เงื่อนไขที่ 2: 10 - 50 หน่วย -> หน่วยละ 2 บาท
     elif units <= 50:
-        # 9 หน่วยแรกฟรี คิดเงินเฉพาะหน่วยที่เกิน 9 มา
         bill = (units - 9) * 2
-        
-    # เงื่อนไขที่ 3: 51 - 100 หน่วย -> หน่วยละ 3 บาท
     elif units <= 100:
-        # 9 หน่วยแรกฟรี + ช่วงหน่วยที่ 10-50 (มี 41 หน่วย) หน่วยละ 2 บาท + หน่วยที่เกิน 50 เป็นต้นไป หน่วยละ 3 บาท
-        bill = (41 * 2) + ((units - 50) * 3)
-        
-    # เงื่อนไขที่ 4: มากกว่า 100 หน่วย -> หน่วยละ 4 บาท
+        bill = 82 + ((units - 50) * 3)
     else:
-        # 9 หน่วยแรกฟรี + ช่วง 10-50 (41 หน่วย * 2) + ช่วง 51-100 (50 หน่วย * 3) + หน่วยที่เกิน 100 หน่วยละ 4 บาท
-        bill = (41 * 2) + (50 * 3) + ((units - 100) * 4)
+        bill = 232 + ((units - 100) * 4) 
         
     return bill
 
-# --- ส่วนของการทำงาน (Input / Output) ---
-try:
-    # Input: จำนวนหน่วยไฟฟ้k
-    user_input = float(input("กรุณากรอกจำนวนหน่วยไฟฟ้าที่ใช้: "))
-    
-    if user_input < 0:
-        print("จำนวนหน่วยไฟฟ้าต้องไม่ติดลบ")
-    else:
-        # คำนวณค่าไฟ
-        total_bill = calculate_electricity_bill(user_input)
-        
-        # Output: ค่าไฟฟ้าที่ต้องจ่าย
-        print(f"จำนวนหน่วยที่ใช้: {user_input} หน่วย")
-        print(f"ค่าไฟฟ้าที่ต้องจ่าย: {total_bill:.2f} บาท")
+user_input = int(input("กรอกจำนวนหน่วย: "))
 
-except ValueError:
-    print("กรุณากรอกข้อมูลเป็นตัวเลข")
+total_bill = calculate_electricity_bill(user_input)
+print("จำนวนไฟฟ้าที่ใช้:", user_input)
+print("ค่าไฟฟ้าที่ต้องจ่าย:", total_bill)
+print("br aom 4/4") 
+print(" thank you")   
